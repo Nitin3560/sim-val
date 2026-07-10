@@ -1,0 +1,32 @@
+scenario_id: circle_5m_nominal
+description: "UAV flies a 3m radius circle at 5m altitude."
+
+trajectory:
+  mode: circle
+  center: {x: 0.0, y: 0.0, z: -5.0}
+  radius_m: 3.0
+  period_s: 18.0
+  total_duration_s: 36.0
+
+sensors:
+  camera:
+    width: 640
+    height: 480
+    fov_deg: 90.0
+    fps: 15
+  lidar:
+    pattern: rotary_16beam
+    range_m: 20.0
+    hz: 10
+  depth:
+    width: 640
+    height: 480
+    fps: 15
+
+environment:
+  lighting: overcast
+  ground_texture: grass
+  obstacles:
+    - {type: box, x: 2.0, y: 0.0, z: 0.0, w: 0.5, d: 0.5, h: 3.0}
+
+degradation: none

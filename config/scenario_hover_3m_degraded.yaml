@@ -1,0 +1,33 @@
+scenario_id: hover_3m_camera_occlusion
+description: "Same as hover_3m_nominal but a plane briefly occludes the camera at t=8s."
+
+trajectory:
+  waypoints:
+    - {x: 0.0, y: 0.0, z: -3.0, hold_s: 3.0}
+    - {x: 2.0, y: 0.0, z: -3.0, hold_s: 3.0}
+    - {x: 0.0, y: 0.0, z: -3.0, hold_s: 3.0}
+  total_duration_s: 20.0
+
+sensors:
+  camera:
+    width: 640
+    height: 480
+    fov_deg: 90.0
+    fps: 15
+  lidar:
+    pattern: rotary_16beam
+    range_m: 20.0
+    hz: 10
+  depth:
+    width: 640
+    height: 480
+    fps: 15
+
+environment:
+  lighting: midday_sun
+  ground_texture: concrete
+  obstacles:
+    - {type: occlusion_plane, trigger_s: 8.0, duration_s: 2.0,
+       x: 0.5, y: 0.0, z: -3.0}
+
+degradation: camera_occlusion

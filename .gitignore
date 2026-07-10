@@ -1,0 +1,12 @@
+outputs/
+*.npy
+*.bag
+*.db3
+*.mcap
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+*.egg-info/
+dist/
+build/
